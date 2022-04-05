@@ -1,7 +1,10 @@
 <?php
 namespace App\Entity;
 
-class Client{
+use Core\Entity\DefaultEntity;
+
+final class Client extends DefaultEntity{
+    
     private int $id;
 
     private string $nom;

@@ -1,39 +1,39 @@
 <?php
 namespace App\Controller;
 
-use App\Model\ClientModel;
+use App\Model\PlaceModel;
 use Core\Controller\DefaultController;
 
-final class ClientController extends DefaultController{
+final class PlaceController extends DefaultController{
 
     private $model;
 
     public function __construct()
     {
-        $this->model = new ClientModel;
+        $this->model = new PlaceModel;
     }
 
     public function index () :never
     {
-        $clients = $this->model->findAll();
-        self::jsonResponse($clients, 200);
+        $places = $this->model->findAll();
+        self::jsonResponse($places, 200);
     }
 
      /**
-     * Renvoie une client en fonction de son id
+     * Renvoie une place en fonction de son id
      *
      * @param integer $id
      * @return void
      */
     public function single (int $id)
     {
-        $client = $this->model->find($id);
-        self::jsonResponse($client, 200);
+        $place = $this->model->find($id);
+        self::jsonResponse($place, 200);
 
     }
 
     /**
-     * Enregistre une client en BDD
+     * Enregistre une place en BDD
      *
      * @param array $data
      * @return void
@@ -41,13 +41,13 @@ final class ClientController extends DefaultController{
     public function save (array $data)
     {
         $lastId = $this->model->save($data);
-        $client = $this->model->find($lastId);
-        self::jsonResponse($client, 201);
+        $place = $this->model->find($lastId);
+        self::jsonResponse($place, 201);
 
 
     }
     /**
-     * Modifie une client en BDD
+     * Modifie une place en BDD
      *
      * @param integer $id
      * @param array $data
@@ -56,13 +56,13 @@ final class ClientController extends DefaultController{
     public function update (int $id, array $data)
     {
         if($this->model->update($id, $data)) {
-            $client = $this->model->find($id);
-            self::jsonResponse($client, 201);
+            $place = $this->model->find($id);
+            self::jsonResponse($place, 201);
         }
     }
 
     /**
-     * Supprime une client en BDD
+     * Supprime une place en BDD
      *
      * @param integer $id
      * @return void
@@ -70,6 +70,6 @@ final class ClientController extends DefaultController{
     public function delete (int $id)
     {
         $this->model->delete($id);
-        self::jsonResponse("Client supprimée", 200);
+        self::jsonResponse("Table supprimée", 200);
     }
 }

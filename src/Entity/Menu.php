@@ -1,7 +1,9 @@
 <?php
 namespace App\Entity;
 
-class Menu{
+use Core\Entity\DefaultEntity;
+
+final class Menu extends DefaultEntity{
 
     private int $id;
 

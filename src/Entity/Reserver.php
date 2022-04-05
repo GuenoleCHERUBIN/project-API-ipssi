@@ -1,15 +1,17 @@
 <?php
 namespace App\Entity;
 
-class Reserver{
+use Core\Entity\DefaultEntity;
+
+final class Reserver extends DefaultEntity{
 
     private int $idClient;
 
     private int $idPlace;
 
-    private date $date;
+    private  $date;
 
-    private time $heure;
+    private  $heure;
 
     /**
      * Get the value of idClient
