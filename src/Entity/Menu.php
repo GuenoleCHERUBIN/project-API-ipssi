@@ -1,17 +1,19 @@
 <?php
 namespace App\Entity;
 
-class Menu{
+use Core\Entity\DefaultEntity;
+
+final class Menu extends DefaultEntity{
 
     private int $id;
 
-    private string $entree;
+    private string $type;
 
-    private string $plat;
+    private string $name;
 
-    private string $dessert;
+    private string $description;
 
-    private string $boisson;
+    private int $prix;
 
     /**
      * Get the value of id
@@ -34,81 +36,81 @@ class Menu{
     }
 
     /**
-     * Get the value of entree
+     * Get the value of type
      */ 
-    public function getEntree()
+    public function getType()
     {
-        return $this->entree;
+        return $this->type;
     }
 
     /**
-     * Set the value of entree
+     * Set the value of type
      *
      * @return  self
      */ 
-    public function setEntree($entree)
+    public function setType($type)
     {
-        $this->entree = $entree;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get the value of plat
+     * Get the value of name
      */ 
-    public function getPlat()
+    public function getName()
     {
-        return $this->plat;
+        return $this->name;
     }
 
     /**
-     * Set the value of plat
+     * Set the value of name
      *
      * @return  self
      */ 
-    public function setPlat($plat)
+    public function setName($name)
     {
-        $this->plat = $plat;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get the value of dessert
+     * Get the value of description
      */ 
-    public function getDessert()
+    public function getDescription()
     {
-        return $this->dessert;
+        return $this->description;
     }
 
     /**
-     * Set the value of dessert
+     * Set the value of description
      *
      * @return  self
      */ 
-    public function setDessert($dessert)
+    public function setDescription($description)
     {
-        $this->dessert = $dessert;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get the value of boisson
+     * Get the value of prix
      */ 
-    public function getBoisson()
+    public function getPrix()
     {
-        return $this->boisson;
+        return $this->prix;
     }
 
     /**
-     * Set the value of boisson
+     * Set the value of prix
      *
      * @return  self
      */ 
-    public function setBoisson($boisson)
+    public function setPrix($prix)
     {
-        $this->boisson = $boisson;
+        $this->prix = $prix;
 
         return $this;
     }
