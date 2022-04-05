@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
 
+use App\Entity\Place;
 use Core\Model\DefaultModel;
 
 /**

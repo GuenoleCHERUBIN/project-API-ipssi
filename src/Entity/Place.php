@@ -3,7 +3,7 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Categorie extends DefaultEntity{
+final class Place extends DefaultEntity{
 
     private int $id;
 
