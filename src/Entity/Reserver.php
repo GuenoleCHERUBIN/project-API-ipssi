@@ -96,11 +96,10 @@ final class Reserver extends DefaultEntity implements \JsonSerializable {
     public function jsonSerialize(): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'prix' => $this->prix,
-            'type' => $this->type,
-            'description' => $this->description
+            'id_client' => $this->idClient,
+            'id_place' => $this->idPlace,
+            'date' => $this->date,
+            'heure' => $this->heure
         ];
     }
 }

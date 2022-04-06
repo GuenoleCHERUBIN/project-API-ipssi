@@ -19,6 +19,16 @@ final class Place extends DefaultEntity implements \JsonSerializable {
     }
 
     /**
+     * Get the value of id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * Get the value of nbpersonne
      */ 
     public function getNbpersonne()
@@ -42,10 +52,7 @@ final class Place extends DefaultEntity implements \JsonSerializable {
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'prix' => $this->prix,
-            'type' => $this->type,
-            'description' => $this->description
+            'nbpersonne' => $this->nbpersonne
         ];
     }
 }
