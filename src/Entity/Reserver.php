@@ -3,7 +3,7 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Reserver extends DefaultEntity{
+final class Reserver extends DefaultEntity implements \JsonSerializable {
 
     private int $idClient;
 
@@ -91,5 +91,16 @@ final class Reserver extends DefaultEntity{
         $this->heure = $heure;
 
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'prix' => $this->prix,
+            'type' => $this->type,
+            'description' => $this->description
+        ];
     }
 }

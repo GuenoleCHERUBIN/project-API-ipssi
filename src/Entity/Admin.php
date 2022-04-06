@@ -3,11 +3,11 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Admin extends DefaultEntity{
+final class Admin extends DefaultEntity implements \JsonSerializable {
 
     private int $id;
 
-    private string $email;
+    private string $mail;
 
     private string $password;
 
@@ -22,9 +22,9 @@ final class Admin extends DefaultEntity{
     /**
      * Get the value of email
      */ 
-    public function getEmail()
+    public function getMail()
     {
-        return $this->email;
+        return $this->mail;
     }
 
     /**
@@ -32,9 +32,9 @@ final class Admin extends DefaultEntity{
      *
      * @return  self
      */ 
-    public function setEmail($email)
+    public function setMail($mail)
     {
-        $this->email = $email;
+        $this->mail = $mail;
 
         return $this;
     }
@@ -57,5 +57,14 @@ final class Admin extends DefaultEntity{
         $this->password = $password;
 
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'mail' => $this->mail,
+            'password' => $this->password,
+        ];
     }
 }

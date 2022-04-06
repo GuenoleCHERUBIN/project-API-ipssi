@@ -3,7 +3,7 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Menu extends DefaultEntity{
+final class Menu extends DefaultEntity implements \JsonSerializable {
 
     private int $id;
 
@@ -113,5 +113,16 @@ final class Menu extends DefaultEntity{
         $this->prix = $prix;
 
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'prix' => $this->prix,
+            'type' => $this->type,
+            'description' => $this->description
+        ];
     }
 }
