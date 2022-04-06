@@ -7,17 +7,17 @@ final class Client extends DefaultEntity{
     
     private int $id;
 
-    private string $nom;
+    private string $name;
 
-    private string $prenom;
+    private string $surname;
     
     private int $tel;
 
-    private string $adress;
+    private string $address;
 
     private int $codepostal;
 
-    private string $ville;
+    private string $city;
 
     
 
@@ -47,9 +47,9 @@ final class Client extends DefaultEntity{
     /**
      * Get the value of nom
      */ 
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
@@ -57,9 +57,9 @@ final class Client extends DefaultEntity{
      *
      * @return  self
      */ 
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -67,9 +67,9 @@ final class Client extends DefaultEntity{
     /**
      * Get the value of prenom
      */ 
-    public function getPrenom()
+    public function getSurname()
     {
-        return $this->prenom;
+        return $this->surname;
     }
 
     /**
@@ -77,9 +77,9 @@ final class Client extends DefaultEntity{
      *
      * @return  self
      */ 
-    public function setPrenom($prenom)
+    public function setSurname($surname)
     {
-        $this->prenom = $prenom;
+        $this->surname = $surname;
 
         return $this;
     }
@@ -107,9 +107,9 @@ final class Client extends DefaultEntity{
     /**
      * Get the value of adress
      */ 
-    public function getAdress()
+    public function getAddress()
     {
-        return $this->adress;
+        return $this->address;
     }
 
     /**
@@ -117,9 +117,9 @@ final class Client extends DefaultEntity{
      *
      * @return  self
      */ 
-    public function setAdress($adress)
+    public function setAddress($address)
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
@@ -147,9 +147,9 @@ final class Client extends DefaultEntity{
     /**
      * Get the value of ville
      */ 
-    public function getVille()
+    public function getCity()
     {
-        return $this->ville;
+        return $this->city;
     }
 
     /**
@@ -157,9 +157,9 @@ final class Client extends DefaultEntity{
      *
      * @return  self
      */ 
-    public function setVille($ville)
+    public function setCity($city)
     {
-        $this->ville = $ville;
+        $this->city = $city;
 
         return $this;
     }

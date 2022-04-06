@@ -16,7 +16,8 @@ final class MenuController extends DefaultController{
     public function index ()
     {
         $menus = $this->model->findAll();
-        $this->jsonResponse($menus, 200);
+        self::jsonResponse($menus, 200);
+
     }
 
     /**

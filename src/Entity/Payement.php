@@ -3,7 +3,7 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-class Payement extends DefaultEntity {
+class Payement extends DefaultEntity implements \JsonSerializable {
 
     private int $id;
 
@@ -113,5 +113,16 @@ class Payement extends DefaultEntity {
         $this->crypto = $crypto;
 
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'prix' => $this->prix,
+            'type' => $this->type,
+            'description' => $this->description
+        ];
     }
 }
