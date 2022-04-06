@@ -119,10 +119,10 @@ class Payement extends DefaultEntity implements \JsonSerializable {
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'prix' => $this->prix,
-            'type' => $this->type,
-            'description' => $this->description
+            'num_carte' => $this->num_carte,
+            'nom_carte' => $this->nom_carte,
+            'crypto' => $this->crypto,
+            'date_exp' => $this->date_exp
         ];
     }
 }
