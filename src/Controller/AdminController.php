@@ -6,10 +6,11 @@ use App\Security\JWTSecurity;
 use Core\Controller\DefaultController;
 
 class AdminController extends DefaultController {
-
-    public function __construct(
-        private AdminModel $model = new AdminModel
-    ){}
+    private $model;
+    
+    public function __construct(){
+        $this->model = new AdminModel;
+    }
 
     public function save (array $data)
     {
