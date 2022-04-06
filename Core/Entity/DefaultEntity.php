@@ -1,7 +1,7 @@
 <?php
 namespace Core\Entity;
 
-class DefaultEntity {
+abstract class DefaultEntity {
 
     // Déclenche l'hydration à l'instanciation d'une entité
     public function __construct(array $data = [])
@@ -29,4 +29,6 @@ class DefaultEntity {
             }
         }
     }
+
+    public abstract function JsonSerialize (): array;
 }

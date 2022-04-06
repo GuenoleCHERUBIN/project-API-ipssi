@@ -3,12 +3,12 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Place extends DefaultEntity{
+final class Place extends DefaultEntity implements \JsonSerializable {
 
     private int $id;
 
     private int $nbpersonne;
-    
+
 
     /**
      * Get the value of id
@@ -36,5 +36,16 @@ final class Place extends DefaultEntity{
         $this->nbpersonne = $nbpersonne;
 
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'prix' => $this->prix,
+            'type' => $this->type,
+            'description' => $this->description
+        ];
     }
 }
