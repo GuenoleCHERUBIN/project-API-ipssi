@@ -12,7 +12,9 @@
 *******************
 
 #### Settup your DB information in config/dbConfig.php
+#### Execute the sql/restaurant.sql file in your database;
 *******************
 
 #### To launch the php server for the REST api 
 * ``  php -S localhost:8000 -t public``
+
