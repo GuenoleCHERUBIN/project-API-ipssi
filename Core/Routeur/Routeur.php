@@ -1,11 +1,16 @@
 <?php
 namespace Core\Routeur;
 
+use Exception;
 use App\Security\ApiSecurity;
 
 final class Routeur {
 
     public static function Routes() {
+        header ('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Method: POST,PUT,GET,DELETE');
+
         try {
             if (isset($_GET['apikey']) && !empty($_GET['apikey'])) {
                 if( !(new ApiSecurity)->verifyApikey(htmlspecialchars($_GET["apikey"])))
