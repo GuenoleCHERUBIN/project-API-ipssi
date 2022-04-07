@@ -1,7 +1,7 @@
 <?php
 namespace App\Entity;
 
-class Commande{
+class Commande extends DefaultEntity implements \JsonSerializable {
     private int $idCommande;
 
     private int $idMenu;
@@ -14,15 +14,15 @@ class Commande{
 
 
 /**
-     * Get the value of idMenu
+     * Get the value of idCommande
      */ 
     public function getIdCommande()
     {
-        return $this->idMenu;
+        return $this->idCommande;
     }
 
     /**
-     * Set the value of idMenu
+     * Set the value of idCommande
      *
      * @return  self
      */ 
