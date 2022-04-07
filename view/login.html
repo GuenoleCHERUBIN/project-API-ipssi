@@ -14,13 +14,13 @@
     </button>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="reserver.php">Reserver une table</a>
+          <a class="nav-link active" aria-current="page" href="reservation.html">Reserver une table</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="commander.php">Commander</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Connexion</a>
+          <a class="nav-link" href="login.html">Connexion</a>
         </li>
       </ul>
     </div>
@@ -31,7 +31,7 @@
 <h1>Connexion</h1>
 <form>
     <label for="inp_email">email</label>
-    <input type="text" name="inp_email" id="inp_email">
+    <input type="text" name="inp_email" id="inp_email"></br>
     <label for="inp_password">Password</label>
     <input type="password" name="inp_pasword" id="inp_password">
     <button type="submit"> inscription </button>
@@ -42,33 +42,37 @@
 
 <script>
 
-    const myForm= document.getElementById('myForm');
+   
 
-    if(myForm){
-    myForm.addEventListener('submit', function (e){
-        e.preventDefault();
+const myForm= document.getElementById('myForm');
 
-        const formData = new FormData(this);
-        const searchParams = new URLSearchParams();
+if(myForm){
+myForm.addEventListener('submit', function (e){
+    e.preventDefault();
 
-        for(const pair of formData) {
-            searchParams.append(pair[0], pair[1])
-        }
+    const formData = new FormData(this);
 
-        fetch('src/Controller/AdminController.php/save', {
-            method: 'post',
-            body: searchParams
-        }).then(function (response) {
-            return response.text();
-        }).then(function (text) {
-            console.log(text);
-        }).catch(function(error) {
-            console.error(error);
-        })
-    })
-}
+    (async () => {
+        const rawResponse = await fetch('http://localhost:8070/Admin', {
+          method: 'POST',
+          headers: {
+
+            'Access-Control-Allow-Origin':'*',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+});
+        const content = await rawResponse.json();
+      
+        console.log(content);
+      })();
+})
+    
+
+    }  
+
 </script>
-
 
 
 
