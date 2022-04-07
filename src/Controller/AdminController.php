@@ -14,9 +14,6 @@ class AdminController extends DefaultController {
 
     public function save (array $data)
     {
-
-        var_dump($data);
-
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
         $this->model->save($data);
         self::jsonResponse("Admin créé", 201);
