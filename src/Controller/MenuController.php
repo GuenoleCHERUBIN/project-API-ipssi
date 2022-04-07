@@ -58,6 +58,6 @@ final class MenuController extends DefaultController{
     public function delete (int $id)
     {
         $this->model->delete($id);
-        self::jsonResponse("Payement supprimé", 200);
+        self::jsonResponse("Menu supprimé", 200);
     }
 }
