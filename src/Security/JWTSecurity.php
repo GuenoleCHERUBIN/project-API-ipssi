@@ -30,8 +30,6 @@ class JWTSecurity {
     public function verifyToken(string $token): bool
     {
         $decode = JWT::decode($token, new Key($this->key, 'HS256'));
-        var_dump($decode);
-        die();
     }
 
 }

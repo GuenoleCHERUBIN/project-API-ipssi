@@ -1,10 +1,23 @@
 <?php
 namespace Core\Routeur;
 
+use App\Security\ApiSecurity;
+
 final class Routeur {
 
     public static function Routes() {
         try {
+            if (isset($_GET['apikey']) && !empty($_GET['apikey'])) {
+                if( !(new ApiSecurity)->verifyApikey(htmlspecialchars($_GET["apikey"])))
+                {
+                    throw new \Exception("Vous n'avez pas les droits pour utiliser cette api", 404);
+                }
+
+            } else {
+                throw new \Exception("Vous n'avez pas les droits pour utiliser cette api", 404);
+            }
+
+
             if (!empty($_SERVER["PATH_INFO"])) {
                 $url = explode('/',$_SERVER["PATH_INFO"]);
                 $controllerName = "App\Controller\\". ucfirst($url[1]). "Controller";
@@ -13,6 +26,7 @@ final class Routeur {
                 } else {
                     throw new Exception("Classe inexistante", 404);
                 }
+
 
                 switch ($_SERVER['REQUEST_METHOD']){
                     case 'GET':
@@ -32,6 +46,7 @@ final class Routeur {
 
                     case 'POST':
                         if (!empty($_POST)) {
+
                             if (isset($url[2])) {
                                 if (method_exists($controller, $url[2])) {
                                     $method = $url[2];
@@ -40,7 +55,9 @@ final class Routeur {
                                     throw new \Exception("Méthode inexistante en POST", 404);
                                 }
                             } else {
+
                                 $controller->save($_POST);
+
                             }
                         } else {
                             throw new \Exception("Method not found", 404);
@@ -71,6 +88,7 @@ final class Routeur {
                     default:
                         throw new \Exception("Request non autorisée", 403);
                 }
+
             } else {
                 throw new Exception("Erreur de récupération de connées");
             }
